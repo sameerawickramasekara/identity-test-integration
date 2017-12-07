@@ -24,6 +24,21 @@ wso2.testgrid.testplan:
   testScenarios:
     -
       enabled: true
-      name: solution22
+      name: solution18
       testEngine: JMETER
-
+   -
+      enabled: true
+      solutionPattern: solution28
+      testEngine: JMETER
+    -
+      enabled: false
+      solutionPattern: solution12
+      testEngine: JMETER
+   -
+      enabled: true
+      solutionPattern: solution2
+      testEngine: JMETER
+    -
+      enabled: false
+      solutionPattern: solution21
+      testEngine: JMETER
