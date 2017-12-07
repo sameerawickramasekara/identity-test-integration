@@ -18,29 +18,40 @@
 #TODO:read below property from infra.json file
 appName="travelocity.com"
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
-severHost=$severHost
-severPort=443
+serverHost=$serverHost
+serverPort=$serverPort
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$severHost/samlsso"
+SAML2IdPURL="https://$serverHost/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
-SAML2IdPEntityId="$severHost"
-OAuth2TokenURL="https://$severHost:$severPort/oauth2/token"
+SAML2IdPEntityId="$serverHost"
+OAuth2TokenURL="https://$serverHost:$serverPort/oauth2/token"
 OAuth2ClientId="lKjE0YDVrXNJY8TN7AdzAgkgfJ0a"
 OAuth2ClientSecret="KiAnWzcf9NaKCdL7B8wjGqffE70a"
-OpenIdProviderURL="https://$severHost:$severPort/openid/"
+OpenIdProviderURL="https://$serverHost:$serverPort/openid/"
 OpenIdReturnToURL="http://$tomcatHost:$tomcatPort/travelocity.com/home.jsp"
 
 #create temporary directory
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
-cp -r $scriptPath/../../../../apps/travelocity.com/ $scriptPath/../temp
+cp -r $scriptPath/../../../../apps/travelocity.com/ $scriptPath/../temp#create temporary directory
+mkdir $scriptPath/../temp
+#coping travalocity app to temp direcory
+
+cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cd $scriptPath/../temp/sso-agent-sample/
+#build travelocity app from source
+mvn clean install
+mkdir $scriptPath/../temp/travelocity.com
+cd $scriptPath/../temp/travelocity.com
+#extract travelocity.com.war to temp directory for further configurations
+jar xvf $scriptPath/../temp/sso-agent-sample/target/travelocity.com.war
 
 #updating travelocity.conf file
 sed -i "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
