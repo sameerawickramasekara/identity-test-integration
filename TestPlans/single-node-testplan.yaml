@@ -26,7 +26,7 @@ wso2.testgrid.testplan:
       enabled: true
       name: solution18
       testEngine: JMETER
-   -
+    -
       enabled: true
       solutionPattern: solution28
       testEngine: JMETER
@@ -34,7 +34,7 @@ wso2.testgrid.testplan:
       enabled: false
       solutionPattern: solution12
       testEngine: JMETER
-   -
+    -
       enabled: true
       solutionPattern: solution2
       testEngine: JMETER
