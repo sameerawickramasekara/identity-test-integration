@@ -22,12 +22,6 @@ wso2.testgrid.testplan:
   deployerType: "AWS_CF"
   testScenarios:
     -
-      name: solution18
-      testEngine: JMETER
-    -
-      name: solution28
-      testEngine: JMETER
-    -
       name: solution12
       testEngine: JMETER
     -
