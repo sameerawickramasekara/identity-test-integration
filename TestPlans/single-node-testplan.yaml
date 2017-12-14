@@ -24,3 +24,6 @@ wso2.testgrid.testplan:
     -
       name: solution21
       testEngine: JMETER
+    -
+      name: solution02
+      testEngine: JMETER
