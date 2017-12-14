@@ -22,7 +22,13 @@ prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
 #run base-setup.sh to deploy artifacts
-source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
+source $scriptPath/../base-setup.sh
+echo $serverHost
+echo $serverPort
+echo $tomcatHost
+echo $tomcatPort
+echo $scriptPath
+echo $prgdir
 
 echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
