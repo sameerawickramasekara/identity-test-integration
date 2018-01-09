@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -15,11 +15,10 @@
 # limitations under the License.
 
 serverHost=$serverHost
-serverPort=443
-tomcatHost=$tomcatHost
-tomcatPort=8080
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
+echo $scriptPath
+
 
 #run base-setup.sh to deploy artifacts
 source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
@@ -32,3 +31,4 @@ sed -i "s|^\(tomcatHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/
 sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/user.properties
 
 echo "pre-steps are done..."
+

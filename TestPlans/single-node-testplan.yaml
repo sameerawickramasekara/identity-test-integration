@@ -18,15 +18,9 @@
 wso2.testgrid.testplan:
   name: "TestPlan1"
   description: "Single node test suite"
-  deploymentPattern: "single-node"
+  deploymentPattern: "two-node"
   deployerType: "AWS_CF"
   testScenarios:
-    -
-      name: solution12
-      testEngine: JMETER
-    -
-      name: solution02
-      testEngine: JMETER
     -
       name: solution21
       testEngine: JMETER

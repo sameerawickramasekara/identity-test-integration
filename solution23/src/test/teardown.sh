@@ -14,15 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#these params need to be taken out
 #tomcat properties
-tomcatHost="ec2-54-152-226-196.compute-1.amazonaws.com"
+tomcatHost=$tomcatHost
 tomcatPort=8080
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
-appName="travelocity.com"
+appName1="travelocity.com"
+appName2="avis.com"
 
 #undeploy webapp from tomcat
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
+curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName1
+curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName2
 #clear temp direcotry
 rm -rf $scriptPath/../temp/

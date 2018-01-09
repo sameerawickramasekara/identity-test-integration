@@ -15,21 +15,15 @@
 # limitations under the License.
 
 serverHost=$serverHost
-serverPort=$serverPort
+serverPort=443
 tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
+tomcatPort=8080
 
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
 #run base-setup.sh to deploy artifacts
-source $scriptPath/../base-setup.sh
-
-echo $serverPort
-echo $tomcatHost
-echo $tomcatPort
-echo $scriptPath
-echo $prgdir
+source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
 echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
